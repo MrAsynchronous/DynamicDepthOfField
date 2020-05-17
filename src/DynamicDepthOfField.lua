@@ -15,11 +15,12 @@ local CREATE_ON_INIT = true
 local IS_ENABLED = false
 
 local PROPERTIRES = { --These are the best settings for blurring everything behind a specific object IMO
-	FarIntensity = 0.75,
+	FarIntensity = 1,
 	FocusDistance = 5,
 	InFocusRadius = 0, --Will dynamically change
 	NearIntensity = 0
 }
+
 
 --//Module begin
 local DynamicDepth = {}
@@ -35,6 +36,7 @@ end
 --//Sets the depthOfFocus effect to the distance between the camera and the part
 function DynamicDepth:SetDepthToPart(targetPart, dynamicallyUpdate)
 	if (not depthEffect) then return warn("No depthEffect has been set!") end
+	self:Reset()
 	
 	--Get proper positioning depending on class type
 	local partPosition
@@ -148,5 +150,6 @@ function DynamicDepth:Init()
 	end
 end
 
+DynamicDepth:Init()
 
 return DynamicDepth
