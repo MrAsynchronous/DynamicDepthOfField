@@ -79,8 +79,6 @@ function DynamicDepth:StopUpdating(keepEffectEnabled)
 	
 	if (dynamicConnection) then
 		dynamicConnection:Disconnect()
-	else
-		warn("StopUpdating called without a connection to disconnect!")
 	end
 end
 
